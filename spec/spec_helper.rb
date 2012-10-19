@@ -1,0 +1,13 @@
+$:.unshift File.dirname(__FILE__) + '/../lib'
+require 'random_record'
+
+ActiveRecord::Base.establish_connection(:adapter  => 'sqlite3',
+                                        :database => File.dirname(__FILE__) + '/random_record.sqlite3')
+
+load File.dirname(__FILE__) + '/support/schema.rb'
+load File.dirname(__FILE__) + '/support/models.rb'
+
+RSpec.configure do |config|
+  # Always show ANSI colors
+  config.tty = true
+end
